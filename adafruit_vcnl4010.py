@@ -278,3 +278,10 @@ class VCNL4010:
         lux.
         """
         return self.ambient * _VCNL4010_AMBIENT_LUX_SCALE
+
+      
+    @property
+    def interrupt(self):
+        """The upper and lower threshold values for the interrupt.
+        """
+        return (self.read_u16BE(_VCNL4010_PROXIMITYADJUST), self.read_u16BE(_VCNL4010_PROXIMITYADJUST + 0x2))
